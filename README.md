@@ -25,3 +25,9 @@ Il cursore é caratterizzato da una bolla che segue una pallina piccola, e da un
 On hover invece, su link e button la bolla si gonfierá, sempre con un'animazione, c'é tra l'altro un effetto di inversione dei colori per non compromettere la leggibilitá:
 
 ![on-hover](readme-img/on-hover.png)
+
+## Aggiornamento Funzioni
+
+Sono state aggiunte funzioni di modifica dei Tipi e lo stesso accadrá in futuro per gestire le tecnologie.
+
+La descrizione e la lista teconologie sono state spostate in una nuova finestra info, accessibile da un pulsante 'INFO' nella tabella admin.
