@@ -43,14 +43,12 @@ class ProjectController extends Controller
 
         $project = Project::create($validatedData);
 
-        session()->flash('success', 'Progetto creato con successo!');
-
         // Associa le tecnologie al progetto
         if ($request->has('technologies')) {
             $project->technologies()->sync($request->input('technologies'));
         }
 
-        // Reindirizza alla lista progetti
+        // Reindirizza alla lista progetti con messaggio di successo
         return redirect()->route('admin.projects.index')->with('created', 'Progetto creato con successo!');
     }
 
@@ -79,10 +77,8 @@ class ProjectController extends Controller
         // Aggiorna le technologies
         $project->technologies()->sync($request->technologies);
 
-        session()->flash('success', 'Progetto aggiornato con successo!');
-
-        // Reindirizza alla lista progetti
-        return redirect()->route('admin.projects.index');
+        // Reindirizza alla lista progetti con messaggio di successo
+        return redirect()->route('admin.projects.index')->with('updated', 'Progetto aggiornato con successo!');
     }
 
 
@@ -91,10 +87,8 @@ class ProjectController extends Controller
     {
         $project->delete();
 
-        session()->flash('success', 'Progetto eliminato con successo!');
-
-        // Reindirizza alla lista progetti
-        return redirect()->route('projects.index');
+        // Reindirizza alla lista progetti con messaggio di successo
+        return redirect()->route('projects.index')->with('deleted', 'Progetto eliminato con successo!');
     }
 
     // Mostra le info di un progetto

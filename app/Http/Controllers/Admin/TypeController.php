@@ -10,14 +10,17 @@ class TypeController extends Controller
 {
     public function index()
     {
-        $types = Type::all(); // Assicurati che il modello Type sia importato correttamente con use App\Models\Type;
+        $types = Type::all();
         return view('indextype', compact('types'));
     }
+
+    // Funzione create
     public function create()
     {
-        return view('createtech');
+        return view('createtech', ['resourceType' => 'type']);
     }
 
+    // Funzione store
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -28,11 +31,13 @@ class TypeController extends Controller
         return redirect()->route('admin.types.index');
     }
 
+    // Funzione di Edit
     public function edit(Type $type)
     {
-        return view('edittech', compact('type'));
+        return view('edittech', ['resourceType' => 'type', 'resource' => $type]);
     }
 
+    // Funzione di Update
     public function update(Request $request, Type $type)
     {
         $validatedData = $request->validate([
@@ -43,6 +48,7 @@ class TypeController extends Controller
         return redirect()->route('admin.types.index');
     }
 
+    // Funzione di Delete
     public function destroy(Type $type)
     {
         $type->delete();

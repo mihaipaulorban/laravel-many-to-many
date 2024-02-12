@@ -50,8 +50,6 @@ Route::resource('projects', ProjectController::class);
 Route::get('/admin/projects/{id}', [ProjectController::class, 'show'])->name('info');
 
 // Gestione tipi e teconologie
-
-
 Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
     Route::resource('types', TypeController::class);
     Route::resource('technologies', TechnologyController::class);

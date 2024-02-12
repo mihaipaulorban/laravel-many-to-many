@@ -34,8 +34,8 @@ body {
 
         &__ball {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: -12px;
+            left: -5px;
             mix-blend-mode: difference;
             z-index: 1000;
 
