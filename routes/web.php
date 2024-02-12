@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ProjectController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\Admin\TechnologyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,3 +48,11 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 Route::resource('projects', ProjectController::class);
 
 Route::get('/admin/projects/{id}', [ProjectController::class, 'show'])->name('info');
+
+// Gestione tipi e teconologie
+
+
+Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
+    Route::resource('types', TypeController::class);
+    Route::resource('technologies', TechnologyController::class);
+});

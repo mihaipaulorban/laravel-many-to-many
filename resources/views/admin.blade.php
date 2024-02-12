@@ -11,6 +11,14 @@
              Crea Nuovo Progetto
            </a>
 
+           {{-- Pulsanti per gestire le categorie --}}
+           <a href="{{ route('admin.types.index') }}" class="btn btn-primary my-4">
+            Gestione Tipi
+        </a>
+        {{-- Pulsanti per gestire le tecnologie --}}
+        <a href="{{ route('admin.technologies.index') }}" class="btn btn-dark my-4">
+            Gestione Tecnologie
+        </a>
 
         {{-- Tabella --}}
         <table class="table table-borderless table-hover">
