@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-4">
+    <div class="container mt-4 vh-100">
 
         {{-- Titolo --}}
         <h2>Progetti</h2>
