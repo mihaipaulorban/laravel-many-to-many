@@ -22,6 +22,7 @@
                     <th>Nome</th>
                     <th>Descrizione</th>
                     <th>Tipo</th>
+                    <th>Tecnologie</th>
                     <th>Modifica</th>
                     <th>Elimina</th>
                 </tr>
@@ -60,7 +61,11 @@
                         @else
                             <td>{{ $project->type->name ?? 'Nessun tipo' }}</td>
                         @endif
-
+<td> 
+    @foreach ($project->technologies as $technology)
+<span>{{ $technology->name }}</span>
+@endforeach
+</td>   
                         {{-- Colonna modifica --}}
                         <td>
                             <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-primary hoverable">

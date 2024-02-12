@@ -26,6 +26,17 @@
                     @endforeach
                 </select>
             </div>
+            <div class="mb-3">
+                @foreach ($technologies as $technology)
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="technologies[]"
+                                value="{{ $technology->id }}">
+                            {{ $technology->name }}
+                        </label>
+                    </div>
+                @endforeach
+</div>
 
             <button type="submit" class="btn btn-success hoverable">Crea</button>
         </form>

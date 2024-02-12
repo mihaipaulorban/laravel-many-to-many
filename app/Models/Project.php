@@ -21,4 +21,10 @@ class Project extends Model
     {
         return $this->belongsTo(Type::class);
     }
+
+    // Restituisce le tecnologie in relazione con la tabella pivot
+    public function technologies()
+    {
+        return $this->belongsToMany(Technology::class);
+    }
 }

@@ -27,7 +27,26 @@
                     @endforeach
                 </select>
             </div>
-            
+            <div class="mb-3">
+
+                @foreach ($technologies as $technology)
+                    <div class="form-check form-check-inline">
+
+                        <input class="form-check-input" type="checkbox" value="{{ $technology->id }}"
+                            id="technology_{{ $technology->id }}" name="technologies[]"
+                            @if ($project->technologies->contains($technology)) checked @endif>
+
+                        <label class="form-check-label" for="technology_{{ $technology->id }}">
+
+                            {{ $technology->name }}
+
+                        </label>
+
+                    </div>
+                @endforeach
+
+            </div>
+
             <button type="submit" class="btn btn-primary hoverable">Aggiorna</button>
         </form>
     </div>
