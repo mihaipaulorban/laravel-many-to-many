@@ -20,9 +20,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
-                    <th>Descrizione</th>
                     <th>Tipo</th>
-                    <th>Tecnologie</th>
+                    <th>Info</th>
                     <th>Modifica</th>
                     <th>Elimina</th>
                 </tr>
@@ -37,7 +36,6 @@
                         {{-- Colonne --}}
                         <td>{{ $project->id }}</td>
                         <td>{{ $project->title }}</td>
-                        <td>{{ $project->description }}</td>
 
                         {{-- Colonna tipo progetto --}}
                         @if ($project->type_id == 1)
@@ -61,11 +59,10 @@
                         @else
                             <td>{{ $project->type->name ?? 'Nessun tipo' }}</td>
                         @endif
-<td> 
-    @foreach ($project->technologies as $technology)
-<span>{{ $technology->name }}</span>
-@endforeach
-</td>   
+                        {{-- Colonna info --}}
+                        <td>
+                            <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-info">Info</a>
+                        </td>
                         {{-- Colonna modifica --}}
                         <td>
                             <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-primary hoverable">

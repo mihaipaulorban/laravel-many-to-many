@@ -76,11 +76,15 @@ class ProjectController extends Controller
 
         $project->update($validatedData);
 
+        // Aggiorna le technologies
+        $project->technologies()->sync($request->technologies);
+
         session()->flash('success', 'Progetto aggiornato con successo!');
 
         // Reindirizza alla lista progetti
         return redirect()->route('admin.projects.index');
     }
+
 
     // Elimina un progetto
     public function destroy(Project $project)
@@ -91,5 +95,12 @@ class ProjectController extends Controller
 
         // Reindirizza alla lista progetti
         return redirect()->route('projects.index');
+    }
+
+    // Mostra le info di un progetto
+    public function show($id)
+    {
+        $project = Project::with('technologies')->findOrFail($id);
+        return view('show', compact('project'));
     }
 }

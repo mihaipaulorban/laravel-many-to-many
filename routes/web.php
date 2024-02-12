@@ -44,3 +44,5 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
 // Rotta per Eliminare un progetto
 Route::resource('projects', ProjectController::class);
+
+Route::get('/admin/projects/{id}', [ProjectController::class, 'show'])->name('info');
